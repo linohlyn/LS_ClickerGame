@@ -44,7 +44,7 @@ class BaseViewModel {
     try {
       $pdoOptions = [ \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION ];
 
-      return new \PDO('mysql:host=localhost;dbname=userdb', 'root', '', $pdoOptions);
+      return new \PDO('mysql:host=us-cdbr-east-05.cleardb.net;dbname=heroku_6fc4810c27a0cea', 'b27233c411a5ba', 'b629de26', $pdoOptions);
     } catch (\PdoException $e) {
       echo "Connection failed" . $e->getMessage();
     }
