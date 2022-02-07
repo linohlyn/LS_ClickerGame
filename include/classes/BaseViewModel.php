@@ -43,8 +43,14 @@ class BaseViewModel {
   private function getPdoConnection() {
     try {
       $pdoOptions = [ \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION ];
+      $dbhost = $_SERVER['aavmq3tnf4knu8.ckaktwn7nhsu.us-east-2.rds.amazonaws.com'];
+      $dbport = $_SERVER['3306'];
+      $dbname = $_SERVER['userDB'];
+      $charset = 'utf8' ;
+      $username = $_SERVER['admin'];
+      $password = $_SERVER['Welcome2db'];
 
-      return new \PDO('mysql:host=us-cdbr-east-05.cleardb.net;dbname=heroku_6fc4810c27a0cea', 'b27233c411a5ba', 'b629de26', $pdoOptions);
+      return new \PDO("mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";, $username, $password, $pdoOptions);
     } catch (\PdoException $e) {
       echo "Connection failed" . $e->getMessage();
     }
